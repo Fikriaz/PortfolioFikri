@@ -493,9 +493,8 @@
               <div class="exp-card-body">
                 <div class="exp-role">Freelance Software Tester</div>
                 <div class="exp-company">TesterWork</div>
-                <div class="exp-period">May 2025 – Present</div>
-                <div class="exp-desc">Menjalankan test scenarios tanpa predefined cases untuk mensimulasikan real user behavior dan menemukan bug tersembunyi.</div>
-              </div>
+                <div class="exp-period">May 2025 – May 2026</div>
+                <div class="exp-desc">Conducted functional testing, executed test scenarios, and identified bugs to ensure product quality.</div>              </div>
             </div>
 
 
@@ -507,8 +506,7 @@
                 <div class="exp-role">Freelance System Analyst</div>
                 <div class="exp-company">PT Javan Cipta Solusi</div>
                 <div class="exp-period">Jan – Feb 2026</div>
-                <div class="exp-desc">Membuat PRD, breakdown task, desain UI, dan manual testing untuk memastikan kualitas produk.</div>
-              </div>
+                <div class="exp-desc">Worked on PRDs, task breakdown, UI design, and manual testing to ensure product quality.</div>              </div>
             </div>
 
 
@@ -520,8 +518,7 @@
                 <div class="exp-role">Product Manager Intern</div>
                 <div class="exp-company">Intelligo ID</div>
                 <div class="exp-period">Jan 2025 – May 2025</div>
-                <div class="exp-desc">Menyusun PRD, merancang feedback survey, dan berkolaborasi lintas tim untuk peningkatan event planning.</div>
-              </div>
+                <div class="exp-desc">Created PRDs, designed feedback surveys, and collaborated across teams to improve event planning.</div>              </div>
             </div>
             
             <div class="exp-item reveal">
@@ -532,8 +529,7 @@
                 <div class="exp-role">QA Engineer Virtual Intern</div>
                 <div class="exp-company">Jubelio × Rakamin Academy</div>
                 <div class="exp-period">Dec 2024 – Jan 2025</div>
-                <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
-              </div>
+                <div class="exp-desc">Developed manual and automated test cases for login and product features, and performed API testing using Postman.</div>              </div>
             </div>
 
             <div class="exp-item reveal">
@@ -544,8 +540,7 @@
                 <div class="exp-role">Asistant Lecturer</div>
                 <div class="exp-company">Informatika Universitas Islam Indonesia</div>
                 <div class="exp-period">Oct 2023 – Jan 2025</div>
-                <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
-              </div>
+                <div class="exp-desc">Assisted in web development, networking, Islamic entrepreneurship, project management, and professional ethics courses by helping students understand learning materials and reviewing their assignments and documents.</div>              </div>
             </div>
 
              <div class="exp-item reveal">
@@ -556,8 +551,7 @@
                 <div class="exp-role">Event Organizer</div>
                 <div class="exp-company">Student Staff Informatika UII</div>
                 <div class="exp-period">Jan 2023 – Jan 2025</div>
-                <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
-              </div>
+                <div class="exp-desc">Acted as PIC for event management, helped organize event planning, and served as MC for Informatics Expo and public lectures.</div>              </div>
             </div>
 
           </div>
@@ -584,9 +578,9 @@
 <section id="projects">
   <div class="projects-header">
     <p class="section-label reveal">Work</p>
-    <h2 class="section-title reveal">Project yang pernah<br>saya kerjakan.</h2>
+    <h2 class="section-title reveal">What I’ve Built.</h2>
     <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">Semua</button>
+      <button class="filter-btn active" data-filter="all">All Projects</button>
       <button class="filter-btn" data-filter="qa">QA</button>
       <button class="filter-btn" data-filter="mobile">Mobile</button>
       <button class="filter-btn" data-filter="web">Web</button>
@@ -596,13 +590,16 @@
 
   <div class="projects-grid" id="projects-grid">
 
-    <div class="project-card reveal" data-cat="tools" data-project="bpmn">
+    <div class="project-card reveal" data-cat="tools web qa"  data-project="bpmn">
       <div class="project-thumb">🔧 Preview</div>
       <div class="project-info">
-        <div class="project-tags"><span class="tag">Tools</span><span class="tag">Python</span></div>
-        <div class="project-name">BPMN Test Generator</div>
-        <div class="project-desc">Tools untuk generate test scenario otomatis dari diagram BPMN. Mempercepat proses QA planning.</div>
-        <button class="project-link" onclick="openDetail('bpmn')">Lihat Detail <span class="project-link-arrow">→</span></button>
+        <div class="project-tags"><span class="tag">Tools</span>
+          <span class="tag">Web</span>
+          <span class="tag">QA</span>
+        </div>
+        <div class="project-name">BPMN Generate Test Scenario</div>
+        <div class="project-desc">A tool designed to help testers automatically generate test scenarios from BPMN diagram paths.</div>
+        <button class="project-link" onclick="openDetail('bpmn')">View Details<span class="project-link-arrow">→</span></button>
       </div>
     </div>
 
@@ -738,7 +735,7 @@
 // ── Project data
 const projects = {
   bpmn:{
-    title:'BPMN Test Generator',
+    title:'BPMN Generate Test Scenario',
     problem:'Proses pembuatan test scenario dari diagram BPMN membutuhkan waktu lama dan rentan terhadap miss coverage.',
     solution:'Tool berbasis Python yang mem-parsing BPMN diagram secara otomatis dan menghasilkan test scenario yang terstruktur dan komprehensif.',
     role:'Merancang arsitektur parser, menulis logika ekstraksi node & edge dari BPMN XML, dan mengembangkan template output test scenario.',
@@ -823,8 +820,9 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     btn.classList.add('active');
     const f=btn.dataset.filter;
     document.querySelectorAll('.project-card').forEach(card=>{
-      card.style.display=(f==='all'||card.dataset.cat===f)?'':'none';
-    });
+  const cats = card.dataset.cat.split(' ');
+  card.style.display = (f==='all' || cats.includes(f)) ? '' : 'none';
+});
   });
 });
 
