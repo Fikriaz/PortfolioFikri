@@ -181,8 +181,7 @@
     font-family:var(--serif);font-size:clamp(2rem,3.5vw,2.8rem);
     line-height:1.1;margin-bottom:1.5rem;
   }
-  .about-bio{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:2rem}
-  .about-meta{display:flex;flex-direction:column;gap:10px;margin-bottom:2rem}
+  .about-bio{font-size:15px;line-height:1.8;color:var(--muted);margin-bottom:2rem;text-align:justify;hyphens: auto;}
   .meta-row{display:flex;align-items:center;gap:12px;font-size:14px}
   .meta-icon{font-size:16px;width:20px;text-align:center;color:var(--muted)}
   .meta-label{color:var(--muted);min-width:100px}
@@ -269,7 +268,7 @@
   .exp-role{font-size:14px;font-weight:600;color:var(--text);margin-bottom:2px}
   .exp-company{font-size:12px;color:var(--pink);font-weight:500;margin-bottom:2px}
   .exp-period{font-size:11px;color:var(--muted);margin-bottom:6px;display:flex;align-items:center;gap:4px}
-  .exp-period::before{content:'📅';font-size:10px}
+  .exp-period::before{font-size:10px}
   .exp-desc{font-size:13px;line-height:1.6;color:var(--muted)}
 
   /* ── PROJECTS ── */
@@ -448,11 +447,10 @@
     <section id="home">
       <div class="reveal">
         <span class="home-tag">✦ Available for work</span>
-        <h1 class="home-title">Halo, saya<br><em>Fikri</em> Achmad.</h1>
-        <p class="home-sub">QA Engineer & Product-minded developer. Merancang pengalaman digital yang sederhana, bermakna, dan bebas bug.</p>
-        <div>
-          <a href="#projects" class="btn-primary">Lihat Project</a>
-          <a href="#contact" class="btn-outline">Hubungi Saya</a>
+        <h1 class="home-title">Halo, saya<br><em>Fikri</em> Achmad <em>Fauzi.</em> </h1>
+          <p class="home-sub">Detail-oriented QA Engineer focused on product quality and smooth user experiences.</p>        <div>
+          <a href="#projects" class="btn-primary">View Projects</a>
+          <a href="#contact" class="btn-outline">Get in Touch</a>
         </div>
         <div class="home-scroll-hint" id="scrollHint">
           <span>scroll</span>
@@ -464,36 +462,21 @@
     <!-- 2. ABOUT -->
     <section id="about">
       <div class="about-left">
-        <p class="section-label reveal">About me</p>
-        <h2 class="section-title reveal">Seorang QA &<br>Developer yang<br>peduli detail.</h2>
-        <p class="about-bio reveal">Fresh graduate yang berfokus pada Quality Assurance, software testing, dan mobile development. Saya percaya bahwa produk yang bagus lahir dari proses yang teliti — mulai dari PRD hingga test case terakhir.</p>
+        <!-- <p class="section-label reveal">About me</p> -->
+        <h2 class="section-title reveal">About Me</h2>
+  <p class="about-bio reveal">Quality Assurance enthusiast and System Analyst with experience in software testing and supporting product development. Experienced in creating manual test cases, performing application testing, and identifying bugs to ensure features work properly before release. I also have experience preparing product documentation such as PRD and SOW, breaking down requirements into actionable tasks, and collaborating with development teams throughout the development process. Passionate about improving product quality and continuously learning new skills, including automation testing and API testing.</p>
 
         <div class="about-meta reveal">
           <div class="meta-row">
-            <span class="meta-icon">📍</span>
-            <span class="meta-label">Lokasi</span>
-            <span class="meta-val">Yogyakarta, Indonesia</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-icon">✉️</span>
-            <span class="meta-label">Email</span>
-            <span class="meta-val">fikri.achmadfauzi77@gmail.com</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-icon">🎓</span>
-            <span class="meta-label">Pendidikan</span>
-            <span class="meta-val">S1 Informatika, UII (GPA 3.70)</span>
-          </div>
-          <div class="meta-row">
-            <span class="meta-icon">💼</span>
-            <span class="meta-label">Pengalaman</span>
-            <span class="meta-val">2+ tahun</span>
+            
           </div>
         </div>
 
         <div class="social-links reveal">
           <a href="https://www.linkedin.com/in/fikri-achmad-fauzi" target="_blank" class="social-btn" title="LinkedIn">in</a>
-          <a href="https://s.id/Project-Portfolio" target="_blank" class="social-btn" title="Portfolio">🔗</a>
+          <a href="https://github.com/Fikriaz" target="_blank" class="social-btn" title="github"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
+  </svg></a>
           <a href="mailto:fikri.achmadfauzi77@gmail.com" class="social-btn" title="Email">@</a>
         </div>
 
@@ -501,6 +484,33 @@
         <div class="exp-section">
           <p class="exp-title reveal">Experience</p>
           <div class="exp-timeline">
+
+                 
+             <div class="exp-item reveal">
+              <div class="exp-left">
+                <div class="exp-dot-ring"><span class="exp-abbr">QA</span></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-role">Freelance Software Tester</div>
+                <div class="exp-company">TesterWork</div>
+                <div class="exp-period">May 2025 – Present</div>
+                <div class="exp-desc">Menjalankan test scenarios tanpa predefined cases untuk mensimulasikan real user behavior dan menemukan bug tersembunyi.</div>
+              </div>
+            </div>
+
+
+               <div class="exp-item reveal">
+              <div class="exp-left">
+                <div class="exp-dot-ring"><span class="exp-abbr">SA</span></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-role">Freelance System Analyst</div>
+                <div class="exp-company">PT Javan Cipta Solusi</div>
+                <div class="exp-period">Jan – Feb 2026</div>
+                <div class="exp-desc">Membuat PRD, breakdown task, desain UI, dan manual testing untuk memastikan kualitas produk.</div>
+              </div>
+            </div>
+
 
             <div class="exp-item reveal">
               <div class="exp-left">
@@ -513,31 +523,7 @@
                 <div class="exp-desc">Menyusun PRD, merancang feedback survey, dan berkolaborasi lintas tim untuk peningkatan event planning.</div>
               </div>
             </div>
-
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">SA</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Freelance System Analyst</div>
-                <div class="exp-company">PT Javan Cipta Solusi</div>
-                <div class="exp-period">Jan – Feb 2026</div>
-                <div class="exp-desc">Membuat PRD, breakdown task, desain UI, dan manual testing untuk memastikan kualitas produk.</div>
-              </div>
-            </div>
-
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">QA</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Freelance Software Tester</div>
-                <div class="exp-company">Independent</div>
-                <div class="exp-period">May 2025 – Present</div>
-                <div class="exp-desc">Menjalankan test scenarios tanpa predefined cases untuk mensimulasikan real user behavior dan menemukan bug tersembunyi.</div>
-              </div>
-            </div>
-
+            
             <div class="exp-item reveal">
               <div class="exp-left">
                 <div class="exp-dot-ring"><span class="exp-abbr">QA</span></div>
@@ -546,6 +532,30 @@
                 <div class="exp-role">QA Engineer Virtual Intern</div>
                 <div class="exp-company">Jubelio × Rakamin Academy</div>
                 <div class="exp-period">Dec 2024 – Jan 2025</div>
+                <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
+              </div>
+            </div>
+
+            <div class="exp-item reveal">
+              <div class="exp-left">
+                <div class="exp-dot-ring"><span class="exp-abbr">UII</span></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-role">Asistant Lecturer</div>
+                <div class="exp-company">Informatika Universitas Islam Indonesia</div>
+                <div class="exp-period">Oct 2023 – Jan 2025</div>
+                <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
+              </div>
+            </div>
+
+             <div class="exp-item reveal">
+              <div class="exp-left">
+                <div class="exp-dot-ring"><span class="exp-abbr">SS</span></div>
+              </div>
+              <div class="exp-card-body">
+                <div class="exp-role">Event Organizer</div>
+                <div class="exp-company">Student Staff Informatika UII</div>
+                <div class="exp-period">Jan 2023 – Jan 2025</div>
                 <div class="exp-desc">Manual test cases untuk fitur login & tambah produk. API testing menggunakan Postman.</div>
               </div>
             </div>
@@ -560,8 +570,8 @@
   <!-- STICKY PHOTO COLUMN -->
   <div id="sticky-photo">
     <div class="sticky-frame" id="stickyFrame">
-      <span style="font-size:48px;opacity:0.15">FA</span>
-    </div>
+  <img src="images/image_profil.jpg" alt="Fikri" style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+</div>
     <p class="sticky-caption" id="stickyCaption">
       <span class="sticky-dot"></span>Fikri Achmad Fauzi<br>
       <span style="color:var(--muted);font-size:12px">QA Engineer · Yogyakarta</span>
@@ -741,7 +751,7 @@ const projects = {
     solution:'Aplikasi Android yang mengintegrasikan REST API dengan machine learning model untuk memberikan rekomendasi cerdas dan adaptif.',
     role:'Mengembangkan UI/UX aplikasi, integrasi API, dan menghubungkan ML model ke antarmuka pengguna.',
     impact:'Proyek capstone Bangkit Academy 2024 — diterima sebagai produk final dengan feedback positif dari mentor industri.',
-    stack:['Android','Kotlin','REST API','Machine Learning','Retrofit']
+    stack:['Android','Kotlin','REkST API','Machine Learning','Retrofit']
   },
   cypress:{
     title:'Basic CRUD Cypress',
