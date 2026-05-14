@@ -1,366 +1,929 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Fikri Achmad Fauzi — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+/* ============================================================
+   style.css — Fikri Achmad Fauzi Portfolio
+   ============================================================ */
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#home" class="nav-logo">FA</a>
-  <ul class="nav-links">
-    <li><a href="#home" class="active">Home</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root {
+  --bg: #1b1d34;
+  --bg2: #22253f;
+  --bg3: #2a2e4a;
+  --primary: #1b1d34;
+  --pink: #f13e93;
+  --text: #f0effa;
+  --muted: #9896b0;
+  --accent: #f13e93;
+  --border: rgba(255, 255, 255, 0.08);
+  --border2: rgba(255, 255, 255, 0.14);
+  --tag-bg: rgba(255, 255, 255, 0.06);
+  --tag-text: #c4c2de;
+  --serif: "DM Serif Display", serif;
+  --sans: "DM Sans", sans-serif;
+}
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
 
-<!-- MAIN WRAPPER -->
-<div id="main-wrapper">
-  <div id="main-content">
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 4rem;
+  background: rgba(27, 29, 52, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s;
+}
+nav.scrolled {
+  border-color: var(--border);
+}
+.nav-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid var(--pink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 14px;
+  color: var(--pink);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+  position: relative;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--pink);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s;
+}
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--text);
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  transform: scaleX(1);
+}
 
-    <!-- 1. HOME -->
-    <section id="home">
-      <div class="reveal">
-        <span class="home-tag">✦ Available for work</span>
-        <h1 class="home-title">Halo, saya<br><em>Fikri</em> Achmad <em>Fauzi.</em></h1>
-        <p class="home-sub">Detail-oriented QA Engineer focused on product quality and smooth user experiences.</p>
-        <div>
-          <a href="#projects" class="btn-primary">View Projects</a>
-          <a href="#contact" class="btn-outline">Get in Touch</a>
-        </div>
-        <div class="home-scroll-hint" id="scrollHint">
-          <span>scroll</span>
-          <div class="scroll-arrow"></div>
-        </div>
-      </div>
-    </section>
+/* ── SECTIONS ── */
+section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-    <!-- 2. ABOUT -->
-    <section id="about">
-      <div class="about-left">
-        <h2 class="section-title reveal">About Me</h2>
-        <p class="about-bio reveal">Quality Assurance enthusiast and System Analyst with experience in software testing and supporting product development. Experienced in creating manual test cases, performing application testing, and identifying bugs to ensure features work properly before release. I also have experience preparing product documentation such as PRD and SOW, breaking down requirements into actionable tasks, and collaborating with development teams throughout the development process. Passionate about improving product quality and continuously learning new skills, including automation testing and API testing.</p>
+/* ── MAIN LAYOUT WRAPPER ── */
+#main-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 4rem;
+  align-items: start;
+  padding: 0 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+#main-content {
+  display: flex;
+  flex-direction: column;
+}
 
-        <div class="about-meta reveal">
-          <div class="meta-row"></div>
-        </div>
+/* ── STICKY PHOTO ── */
+#sticky-photo {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.sticky-frame {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: var(--bg2);
+  border: 2px solid var(--border2);
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--serif);
+  font-size: 60px;
+  color: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition:
+    border-color 0.4s,
+    border-radius 0s;
+  will-change: border-radius, width, aspect-ratio;
+}
+.sticky-caption {
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.6;
+  transition: opacity 0.4s;
+}
+.sticky-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pink);
+  display: inline-block;
+  margin-right: 6px;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.7);
+  }
+}
 
-        <div class="social-links reveal">
-          <a href="https://www.linkedin.com/in/fikri-achmad-fauzi" target="_blank" class="social-btn" title="LinkedIn">in</a>
-          <a href="https://github.com/Fikriaz" target="_blank" class="social-btn" title="GitHub">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/>
-            </svg>
-          </a>
-          <a href="mailto:fikri.achmadfauzi77@gmail.com" class="social-btn" title="Email">@</a>
-        </div>
+/* ── HOME ── */
+#home {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.home-tag {
+  display: inline-block;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--pink);
+  text-transform: uppercase;
+  border: 1px solid var(--pink);
+  border-radius: 100px;
+  padding: 4px 14px;
+  margin-bottom: 2rem;
+  background: rgba(241, 62, 147, 0.06);
+}
+.home-title {
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5vw, 4.5rem);
+  line-height: 1.05;
+  color: var(--text);
+  margin-bottom: 1.25rem;
+}
+.home-title em {
+  font-style: italic;
+  color: var(--pink);
+}
+.home-sub {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 480px;
+  margin-bottom: 2.5rem;
+}
+.btn-primary {
+  display: inline-block;
+  background: var(--pink);
+  color: #fff;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 100px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    transform 0.15s,
+    box-shadow 0.2s;
+  box-shadow: 0 4px 20px rgba(241, 62, 147, 0.35);
+}
+.btn-primary:hover {
+  background: #ff5aa3;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 28px rgba(241, 62, 147, 0.5);
+}
+.btn-outline {
+  display: inline-block;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 28px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border2);
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 12px;
+  transition:
+    border-color 0.2s,
+    color 0.2s,
+    transform 0.15s;
+}
+.btn-outline:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+  transform: translateY(-1px);
+}
 
-        <!-- EXPERIENCE TIMELINE -->
-        <div class="exp-section">
-          <p class="exp-title reveal">Experience</p>
-          <div class="exp-timeline">
+/* scroll hint */
+.home-scroll-hint {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3rem;
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+  transition:
+    opacity 0.5s,
+    transform 0.5s;
+}
+.home-scroll-hint.hidden {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+.scroll-arrow {
+  width: 16px;
+  height: 16px;
+  border-right: 1.5px solid var(--muted);
+  border-bottom: 1.5px solid var(--muted);
+  transform: rotate(45deg);
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+}
 
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">QA</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Freelance Software Tester</div>
-                <div class="exp-company">TesterWork</div>
-                <div class="exp-period">May 2025 – May 2026</div>
-                <div class="exp-desc">Conducted functional testing, executed test scenarios, and identified bugs to ensure product quality.</div>
-              </div>
-            </div>
+/* ── ABOUT ── */
+#about {
+  padding: 4rem 0 8rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.section-label {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 3.5vw, 2.8rem);
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+}
+.about-bio {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  text-align: justify;
+  hyphens: auto;
+}
+.meta-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+}
+.meta-icon {
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+  color: var(--muted);
+}
+.meta-label {
+  color: var(--muted);
+  min-width: 100px;
+}
+.meta-val {
+  color: var(--text);
+  font-weight: 500;
+}
+.social-links {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+.social-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.social-btn:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
 
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">SA</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Freelance System Analyst</div>
-                <div class="exp-company">PT Javan Cipta Solusi</div>
-                <div class="exp-period">Jan – Feb 2026</div>
-                <div class="exp-desc">Worked on PRDs, task breakdown, UI design, and manual testing to ensure product quality.</div>
-              </div>
-            </div>
+/* ── EXPERIENCE TIMELINE ── */
+.exp-section {
+  margin-top: 3rem;
+}
+.exp-title {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text);
+}
+.exp-timeline {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-left: 0;
+}
+.exp-timeline::before {
+  content: "";
+  position: absolute;
+  left: 19px;
+  top: 20px;
+  bottom: 20px;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--pink) 0%,
+    rgba(241, 62, 147, 0.15) 100%
+  );
+  border-radius: 2px;
+}
+.exp-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;
+  padding-bottom: 24px;
+}
+.exp-item:last-child {
+  padding-bottom: 0;
+}
+.exp-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  z-index: 1;
+}
+.exp-dot-ring {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(241, 62, 147, 0.08);
+  border: 2px solid rgba(241, 62, 147, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.exp-dot-ring::before {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(241, 62, 147, 0.15);
+}
+.exp-abbr {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--pink);
+  letter-spacing: 0.05em;
+}
+.exp-card-body {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  padding: 14px 16px;
+  flex: 1;
+  transition:
+    border-color 0.2s,
+    transform 0.2s;
+}
+.exp-card-body:hover {
+  border-color: rgba(241, 62, 147, 0.4);
+  transform: translateX(3px);
+}
+.exp-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+.exp-company {
+  font-size: 12px;
+  color: var(--pink);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.exp-period {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.exp-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+}
 
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">PM</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Product Manager Intern</div>
-                <div class="exp-company">Intelligo ID</div>
-                <div class="exp-period">Jan 2025 – May 2025</div>
-                <div class="exp-desc">Created PRDs, designed feedback surveys, and collaborated across teams to improve event planning.</div>
-              </div>
-            </div>
+/* ── PROJECTS ── */
+#projects {
+  padding: 8rem 4rem;
+  min-height: 100vh;
+}
+.projects-header {
+  margin-bottom: 3rem;
+}
+.filter-bar {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+.filter-btn {
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 18px;
+  border-radius: 100px;
+  border: 1.5px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn:hover,
+.filter-btn.active {
+  background: var(--pink);
+  color: #fff;
+  border-color: var(--pink);
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.project-card {
+  background: var(--bg2);
+  border: 1px solid var(--border2);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--pink);
+  box-shadow: 0 8px 30px rgba(241, 62, 147, 0.12);
+}
 
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">QA</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">QA Engineer Virtual Intern</div>
-                <div class="exp-company">Jubelio × Rakamin Academy</div>
-                <div class="exp-period">Dec 2024 – Jan 2025</div>
-                <div class="exp-desc">Developed manual and automated test cases for login and product features, and performed API testing using Postman.</div>
-              </div>
-            </div>
-
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">UII</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Assistant Lecturer</div>
-                <div class="exp-company">Informatika Universitas Islam Indonesia</div>
-                <div class="exp-period">Oct 2023 – Jan 2025</div>
-                <div class="exp-desc">Assisted in web development, networking, Islamic entrepreneurship, project management, and professional ethics courses by helping students understand learning materials and reviewing their assignments and documents.</div>
-              </div>
-            </div>
-
-            <div class="exp-item reveal">
-              <div class="exp-left">
-                <div class="exp-dot-ring"><span class="exp-abbr">SS</span></div>
-              </div>
-              <div class="exp-card-body">
-                <div class="exp-role">Event Organizer</div>
-                <div class="exp-company">Student Staff Informatika UII</div>
-                <div class="exp-period">Jan 2023 – Jan 2025</div>
-                <div class="exp-desc">Acted as PIC for event management, helped organize event planning, and served as MC for Informatics Expo and public lectures.</div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </div><!-- /main-content -->
-
-  <!-- STICKY PHOTO COLUMN -->
-  <div id="sticky-photo">
-    <!--
-      =====================================================================
-      📸 FOTO PROFIL
-      =====================================================================
-      Ganti src di bawah dengan path foto profil kamu.
-      Rekomendasi: foto portrait, min 600×800px, format JPG/PNG/WebP.
-      Contoh: src="images/image_profil.jpg"
-      =====================================================================
-    -->
-    <div class="sticky-frame" id="stickyFrame">
-      <img src="images/image_profil.jpg" alt="Fikri"
-           style="width:100%;height:100%;object-fit:cover;object-position:center top;">
+/*
+  =====================================================================
+  📸 FOTO PROJECT — PROJECT THUMBNAIL
+  =====================================================================
+  Setiap .project-thumb adalah area gambar preview project.
+  Ganti konten emoji/teks dengan tag <img> di HTML, contoh:
+    <div class="project-thumb">
+      <img src="images/projects/nama-project.jpg" alt="Nama Project">
     </div>
-    <p class="sticky-caption" id="stickyCaption">
-      <span class="sticky-dot"></span>Fikri Achmad Fauzi<br>
-      <span style="color:var(--muted);font-size:12px">QA Engineer · Yogyakarta</span>
-    </p>
-  </div>
+  Ukuran: aspect-ratio 16:10, disarankan minimal 800×500px.
+  =====================================================================
+*/
+.project-thumb {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: var(--bg3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+}
+/* Supaya foto mengisi penuh jika pakai <img> di dalam .project-thumb */
+.project-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
 
-</div><!-- /main-wrapper -->
+.project-info {
+  padding: 16px;
+}
+.project-tags {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.tag {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.project-name {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.project-desc {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.project-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--pink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: var(--sans);
+  padding: 0;
+}
+.project-link-arrow {
+  display: inline-block;
+  transition: transform 0.2s;
+  margin-left: 4px;
+}
+.project-card:hover .project-link-arrow {
+  transform: translateX(4px);
+}
 
-<!-- 3. PROJECTS -->
-<section id="projects">
-  <div class="projects-header">
-    <p class="section-label reveal">Work</p>
-    <h2 class="section-title reveal">What I've Built.</h2>
-    <div class="filter-bar reveal">
-      <button class="filter-btn active" data-filter="all">All Projects</button>
-      <button class="filter-btn" data-filter="qa">QA</button>
-      <button class="filter-btn" data-filter="mobile">Mobile</button>
-      <button class="filter-btn" data-filter="web">Web</button>
-      <button class="filter-btn" data-filter="tools">Tools</button>
-    </div>
-  </div>
+/* ── PROJECT DETAIL OVERLAY ── */
+#detail-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  background: rgba(10, 10, 20, 0.75);
+  backdrop-filter: blur(8px);
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0;
+}
+#detail-overlay.open {
+  display: flex;
+}
+.detail-panel {
+  background: var(--bg2);
+  width: 100%;
+  max-height: 90vh;
+  border-radius: 24px 24px 0 0;
+  border-top: 1px solid var(--border2);
+  overflow-y: auto;
+  padding: 3rem 4rem;
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-family: var(--sans);
+  margin-bottom: 2rem;
+  transition: color 0.2s;
+}
+.detail-back:hover {
+  color: var(--text);
+}
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+.detail-images {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
 
-  <div class="projects-grid" id="projects-grid">
+/*
+  =====================================================================
+  📸 FOTO PROJECT — DETAIL OVERLAY (gambar besar + thumbnail)
+  =====================================================================
+  .detail-img  = gambar utama di panel detail (rasio 16:10)
+  .detail-thumb = 3 thumbnail kecil di bawah gambar utama
 
-    <!--
-      =====================================================================
-      📸 FOTO PROJECT — THUMBNAIL DI GRID
-      =====================================================================
-      Masing-masing .project-thumb di bawah adalah area foto thumbnail.
-      Ada DUA cara menambahkan foto:
+  Cara pakai: isi kontennya via JavaScript di script.js,
+  di fungsi openDetail() — lihat bagian "detail-main-img" dan
+  "detail-thumbs" di script.js, tambahkan src gambar di data project.
+  =====================================================================
+*/
+.detail-img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+.detail-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.detail-thumbs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.detail-thumb {
+  aspect-ratio: 16/10;
+  background: var(--bg3);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: var(--muted);
+  cursor: pointer;
+  overflow: hidden;
+}
+.detail-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-      CARA 1 — Lewat script.js (DIREKOMENDASIKAN):
-        Isi field `thumb` di data project di script.js.
-        Foto akan di-inject otomatis saat halaman load.
+.detail-title {
+  font-family: var(--serif);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: var(--text);
+}
+.detail-block {
+  margin-bottom: 1.5rem;
+}
+.detail-block-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+.detail-icon {
+  font-size: 20px;
+}
+.detail-block-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+.detail-block-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--muted);
+  padding-left: 30px;
+}
+.detail-stack {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border2);
+}
+.stack-label {
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+.stack-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.stack-tag {
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg3);
+  color: var(--tag-text);
+  border: 1px solid var(--border2);
+  border-radius: 8px;
+  padding: 5px 14px;
+}
 
-      CARA 2 — Langsung di HTML (override manual):
-        Ganti isi <div class="project-thumb"> dengan:
-          <img src="images/projects/nama.jpg" alt="Nama Project">
-        Hapus emoji/teks placeholder-nya.
+/* ── CONTACT ── */
+#contact {
+  padding: 8rem 4rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.contact-big {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  max-width: 560px;
+  margin: 1rem auto 2rem;
+}
+.contact-sub {
+  font-size: 16px;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+}
+.contact-email {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--text);
+  border-bottom: 2px solid var(--pink);
+  padding-bottom: 2px;
+  text-decoration: none;
+  margin-bottom: 2.5rem;
+  transition: color 0.2s;
+}
+.contact-email:hover {
+  color: var(--pink);
+}
+.contact-socials {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+.contact-social {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--muted);
+  text-decoration: none;
+  border: 1.5px solid var(--border);
+  border-radius: 100px;
+  padding: 8px 20px;
+  transition: all 0.2s;
+}
+.contact-social:hover {
+  border-color: var(--pink);
+  color: var(--pink);
+}
 
-      Foto untuk panel detail (gambar besar + 3 thumbnail) diatur
-      lewat field `images` di script.js, BUKAN di sini.
-      =====================================================================
-    -->
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 4rem;
+  border-top: 1px solid var(--border2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  color: var(--muted);
+}
 
-    <div class="project-card reveal" data-cat="tools web qa" data-project="bpmn">
-      <div class="project-thumb">🔧 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "🔧 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags">
-          <span class="tag">Tools</span>
-          <span class="tag">Web</span>
-          <span class="tag">QA</span>
-        </div>
-        <div class="project-name">BPMN Generate Test Scenario</div>
-        <div class="project-desc">A tool designed to help testers automatically generate test scenarios from BPMN diagram paths.</div>
-        <button class="project-link" onclick="openDetail('bpmn')">View Details<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
+/* ── SCROLL ANIMATIONS ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-    <div class="project-card reveal" data-cat="mobile" data-project="maliva" style="transition-delay:0.05s">
-      <div class="project-thumb">📱 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "📱 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">Mobile</span><span class="tag">Android</span></div>
-        <div class="project-name">MALIVA</div>
-        <div class="project-desc">Aplikasi Android yang mengintegrasikan REST API dan model machine learning untuk pengalaman user yang seamless.</div>
-        <button class="project-link" onclick="openDetail('maliva')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-cat="qa" data-project="cypress" style="transition-delay:0.1s">
-      <div class="project-thumb">🧪 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "🧪 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">QA</span><span class="tag">Cypress</span></div>
-        <div class="project-name">Basic CRUD Cypress</div>
-        <div class="project-desc">Automated end-to-end testing suite menggunakan Cypress untuk operasi CRUD pada web application.</div>
-        <button class="project-link" onclick="openDetail('cypress')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-cat="qa" data-project="jubelio">
-      <div class="project-thumb">🛒 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "🛒 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">QA</span><span class="tag">Postman</span></div>
-        <div class="project-name">Jubelio QA Testing</div>
-        <div class="project-desc">Manual test cases dan API testing untuk platform e-commerce Jubelio; mencakup login flow dan product management.</div>
-        <button class="project-link" onclick="openDetail('jubelio')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-cat="web" data-project="bangkit" style="transition-delay:0.05s">
-      <div class="project-thumb">🌐 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "🌐 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">Web</span><span class="tag">ML</span></div>
-        <div class="project-name">Bangkit Capstone Project</div>
-        <div class="project-desc">Pengembangan UI dan integrasi API & machine learning model dalam platform Bangkit Academy 2024.</div>
-        <button class="project-link" onclick="openDetail('bangkit')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
-
-    <div class="project-card reveal" data-cat="tools" data-project="prd" style="transition-delay:0.1s">
-      <div class="project-thumb">📋 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "📋 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">PM</span><span class="tag">Docs</span></div>
-        <div class="project-name">PRD & System Analysis</div>
-        <div class="project-desc">Penyusunan Product Requirement Documents lengkap beserta breakdown task dan desain alur sistem untuk klien.</div>
-        <button class="project-link" onclick="openDetail('prd')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- PROJECT DETAIL OVERLAY -->
-<div id="detail-overlay">
-  <div class="detail-panel">
-    <button class="detail-back" onclick="closeDetail()">← Kembali ke Projects</button>
-    <div class="detail-grid">
-      <div class="detail-images">
-        <!--
-          📸 Gambar besar & thumbnail di panel detail diatur otomatis
-          lewat fungsi openDetail() di script.js.
-          Kamu cukup isi field `images` di data project di script.js.
-        -->
-        <div class="detail-img" id="detail-main-img">Preview Utama</div>
-        <div class="detail-thumbs">
-          <div class="detail-thumb">Screen 1</div>
-          <div class="detail-thumb">Screen 2</div>
-          <div class="detail-thumb">Screen 3</div>
-        </div>
-      </div>
-      <div class="detail-right">
-        <h2 class="detail-title" id="detail-title">Project Title</h2>
-
-        <div class="detail-block">
-          <div class="detail-block-header">
-            <span class="detail-icon">❗</span>
-            <span class="detail-block-title">Masalah</span>
-          </div>
-          <p class="detail-block-text" id="detail-problem">—</p>
-        </div>
-
-        <div class="detail-block">
-          <div class="detail-block-header">
-            <span class="detail-icon">💡</span>
-            <span class="detail-block-title">Solusi</span>
-          </div>
-          <p class="detail-block-text" id="detail-solution">—</p>
-        </div>
-
-        <div class="detail-block">
-          <div class="detail-block-header">
-            <span class="detail-icon">👤</span>
-            <span class="detail-block-title">Apa yang Saya Lakukan</span>
-          </div>
-          <p class="detail-block-text" id="detail-role">—</p>
-        </div>
-
-        <div class="detail-block">
-          <div class="detail-block-header">
-            <span class="detail-icon">📈</span>
-            <span class="detail-block-title">Impact</span>
-          </div>
-          <p class="detail-block-text" id="detail-impact">—</p>
-        </div>
-
-        <div class="detail-stack">
-          <div class="stack-label">Tech Stack</div>
-          <div class="stack-tags" id="detail-stack"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 4. CONTACT -->
-<section id="contact">
-  <p class="section-label reveal">Contact</p>
-  <h2 class="contact-big reveal">Punya project atau ide yang ingin kita kerjakan bersama?</h2>
-  <p class="contact-sub reveal">Saya terbuka untuk diskusi, kolaborasi, atau sekadar ngobrol soal produk & QA.</p>
-  <a href="mailto:fikri.achmadfauzi77@gmail.com" class="contact-email reveal">fikri.achmadfauzi77@gmail.com</a>
-  <div class="contact-socials reveal">
-    <a href="https://www.linkedin.com/in/fikri-achmad-fauzi" target="_blank" class="contact-social">LinkedIn</a>
-    <a href="https://s.id/Project-Portfolio" target="_blank" class="contact-social">Portfolio</a>
-    <a href="tel:+6282154724247" class="contact-social">+62 821 5472 4247</a>
-  </div>
-</section>
-
-<footer>
-  <span>© 2025 Fikri Achmad Fauzi</span>
-  <span>Yogyakarta, Indonesia</span>
-</footer>
-
-<!-- Script diletakkan di akhir body agar DOM sudah siap -->
-<script src="script.js"></script>
-</body>
-</html>
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+  #main-wrapper {
+    grid-template-columns: 1fr;
+    padding: 0 1.5rem;
+  }
+  #sticky-photo {
+    display: none;
+  }
+  #home {
+    padding: 7rem 0 3rem;
+  }
+  #about {
+    padding: 3rem 0 5rem;
+  }
+  #projects {
+    padding: 5rem 1.5rem;
+  }
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  #contact {
+    padding: 5rem 1.5rem;
+  }
+  footer {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  .detail-grid {
+    grid-template-columns: 1fr;
+  }
+  .detail-panel {
+    padding: 2rem 1.5rem;
+  }
+}
