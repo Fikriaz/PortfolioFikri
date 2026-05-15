@@ -194,7 +194,7 @@
     </div>
 
     <div class="project-card reveal" data-cat="mobile" data-project="maliva" style="transition-delay:0.05s">
-      <div class="project-thumb">📱 Preview</div>
+      <div class="project-thumb">Preview</div>
       <!-- 📸 Kalau pakai Cara 2: hapus "📱 Preview", ganti dengan <img src="..."> -->
       <div class="project-info">
         <div class="project-tags"><span class="tag">Mobile</span><span class="tag">Android</span></div>
@@ -226,16 +226,6 @@
       </div>
     </div>
 
-    <div class="project-card reveal" data-cat="web" data-project="bangkit" style="transition-delay:0.05s">
-      <div class="project-thumb">🌐 Preview</div>
-      <!-- 📸 Kalau pakai Cara 2: hapus "🌐 Preview", ganti dengan <img src="..."> -->
-      <div class="project-info">
-        <div class="project-tags"><span class="tag">Web</span><span class="tag">ML</span></div>
-        <div class="project-name">Bangkit Capstone Project</div>
-        <div class="project-desc">Pengembangan UI dan integrasi API & machine learning model dalam platform Bangkit Academy 2024.</div>
-        <button class="project-link" onclick="openDetail('bangkit')">Lihat Detail<span class="project-link-arrow">→</span></button>
-      </div>
-    </div>
 
     <div class="project-card reveal" data-cat="tools" data-project="prd" style="transition-delay:0.1s">
       <div class="project-thumb">📋 Preview</div>
@@ -243,7 +233,7 @@
       <div class="project-info">
         <div class="project-tags"><span class="tag">PM</span><span class="tag">Docs</span></div>
         <div class="project-name">PRD & System Analysis</div>
-        <div class="project-desc">Penyusunan Product Requirement Documents lengkap beserta breakdown task dan desain alur sistem untuk klien.</div>
+        <div class="project-desc">Preparation of complete Product Requirement Documents along with task breakdown and system flow design for clients.</div>
         <button class="project-link" onclick="openDetail('prd')">Lihat Detail<span class="project-link-arrow">→</span></button>
       </div>
     </div>
@@ -254,15 +244,11 @@
 <!-- PROJECT DETAIL OVERLAY -->
 <div id="detail-overlay">
   <div class="detail-panel">
-    <button class="detail-back" onclick="closeDetail()">← Kembali ke Projects</button>
+    <button class="detail-back" onclick="closeDetail()">← Back to Projects</button>
     <div class="detail-grid">
       <div class="detail-images">
-        <!--
-          📸 Gambar besar & thumbnail di panel detail diatur otomatis
-          lewat fungsi openDetail() di script.js.
-          Kamu cukup isi field `images` di data project di script.js.
-        -->
-        <div class="detail-img" id="detail-main-img">Preview Utama</div>
+        
+        <div class="detail-img" id="detail-main-img">Main Preview</div>
         <div class="detail-thumbs">
           <div class="detail-thumb">Screen 1</div>
           <div class="detail-thumb">Screen 2</div>
@@ -274,31 +260,31 @@
 
         <div class="detail-block">
           <div class="detail-block-header">
-            <span class="detail-icon">❗</span>
-            <span class="detail-block-title">Masalah</span>
+            <span class="detail-icon"></span>
+            <span class="detail-block-title">Problem</span>
           </div>
           <p class="detail-block-text" id="detail-problem">—</p>
         </div>
 
         <div class="detail-block">
           <div class="detail-block-header">
-            <span class="detail-icon">💡</span>
-            <span class="detail-block-title">Solusi</span>
+            <span class="detail-icon"></span>
+            <span class="detail-block-title">Solution</span>
           </div>
           <p class="detail-block-text" id="detail-solution">—</p>
         </div>
 
         <div class="detail-block">
           <div class="detail-block-header">
-            <span class="detail-icon">👤</span>
-            <span class="detail-block-title">Apa yang Saya Lakukan</span>
+            <span class="detail-icon"></span>
+            <span class="detail-block-title">What i Do</span>
           </div>
           <p class="detail-block-text" id="detail-role">—</p>
         </div>
 
         <div class="detail-block">
           <div class="detail-block-header">
-            <span class="detail-icon">📈</span>
+            <span class="detail-icon"></span>
             <span class="detail-block-title">Impact</span>
           </div>
           <p class="detail-block-text" id="detail-impact">—</p>
@@ -315,14 +301,30 @@
 
 <!-- 4. CONTACT -->
 <section id="contact">
-  <p class="section-label reveal">Contact</p>
-  <h2 class="contact-big reveal">Punya project atau ide yang ingin kita kerjakan bersama?</h2>
-  <p class="contact-sub reveal">Saya terbuka untuk diskusi, kolaborasi, atau sekadar ngobrol soal produk & QA.</p>
-  <a href="mailto:fikri.achmadfauzi77@gmail.com" class="contact-email reveal">fikri.achmadfauzi77@gmail.com</a>
+ <h2 class="contact-big reveal">
+    Let’s collaborate on your next project.
+  </h2>
+
+  <p class="contact-sub reveal">
+    I am available for professional opportunities, collaborations, and discussions related to software development, quality assurance, and product testing.
+  </p>
+
+  <a href="mailto:fikri.achmadfauzi77@gmail.com" class="contact-email reveal">
+    fikri.achmadfauzi77@gmail.com
+  </a>
+
   <div class="contact-socials reveal">
-    <a href="https://www.linkedin.com/in/fikri-achmad-fauzi" target="_blank" class="contact-social">LinkedIn</a>
-    <a href="https://s.id/Project-Portfolio" target="_blank" class="contact-social">Portfolio</a>
-    <a href="tel:+6282154724247" class="contact-social">+62 821 5472 4247</a>
+    <a href="https://www.linkedin.com/in/fikri-achmad-fauzi" target="_blank" class="contact-social">
+      LinkedIn
+    </a>
+
+    <!-- <a href="https://s.id/Project-Portfolio" target="_blank" class="contact-social">
+      Portfolio
+    </a> -->
+
+    <!-- <a href="tel:+6282155884743" class="contact-social">
+     
+    </a> -->
   </div>
 </section>
 

@@ -26,18 +26,18 @@
 const projects = {
   bpmn: {
     title: 'BPMN Generate Test Scenario',
-    thumb: '',                  // 📸 ISI: 'images/projects/bpmn-thumb.jpg'
+    thumb: 'images/thumb_bpmn.png',                  // 📸 ISI: 'images/projects/bpmn-thumb.jpg'
     images: [
-      '',                       // 📸 ISI: gambar utama detail
-      '',                       // 📸 ISI: thumbnail 1
-      '',                       // 📸 ISI: thumbnail 2
-      '',                       // 📸 ISI: thumbnail 3
+      'images/2_bpmn.png',                       // 📸 ISI: gambar utama detail
+      'images/3_bpmn.png',                       // 📸 ISI: thumbnail 1
+      'images/4_bpmn.png',                       // 📸 ISI: thumbnail 2
+      'images/1_BPMN.png',                       // 📸 ISI: thumbnail 3
     ],
-    problem: 'Proses pembuatan test scenario dari diagram BPMN membutuhkan waktu lama dan rentan terhadap miss coverage.',
-    solution: 'Tool berbasis Python yang mem-parsing BPMN diagram secara otomatis dan menghasilkan test scenario yang terstruktur dan komprehensif.',
-    role: 'Merancang arsitektur parser, menulis logika ekstraksi node & edge dari BPMN XML, dan mengembangkan template output test scenario.',
-    impact: 'Mengurangi waktu pembuatan test scenario hingga 60% dan meningkatkan coverage konsistensi antar sesi.',
-    stack: ['Python', 'BPMN 2.0', 'Camunda Modeler', 'XML Parsing', 'pytest'],
+problem: 'The process of creating test scenarios by testers from BPMN diagrams is time-consuming and prone to human error, making the creation process inefficient.',
+solution: 'Building a tool that can read and generate test scenarios based on the paths traversed in a BPMN diagram using a Depth First Search (DFS) algorithm, then passing them to an AI to make them easier to understand.',
+role: 'Designing the architecture, writing the node & edge extraction logic from BPMN XML, and developing a complete test scenario output template.',
+impact: 'Reducing test scenario creation time and improving coverage consistency across sessions.',
+stack: ['Java', 'BPMN 2.0', 'Camunda Modeler', 'XML Parsing', 'OpenAI API'],
   },
   maliva: {
     title: 'MALIVA',
