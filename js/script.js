@@ -43,11 +43,11 @@ stack: ['Java', 'BPMN 2.0', 'Camunda Modeler', 'XML Parsing', 'OpenAI API'],
     title: 'MALIVA',
     thumb: '',                  // 📸 ISI: 'images/projects/maliva-thumb.jpg'
     images: ['', '', '', ''],   // 📸 ISI: [main, thumb1, thumb2, thumb3]
-    problem: 'Pengguna kesulitan mendapatkan rekomendasi personal yang akurat melalui aplikasi mobile konvensional.',
-    solution: 'Aplikasi Android yang mengintegrasikan REST API dengan machine learning model untuk memberikan rekomendasi cerdas dan adaptif.',
-    role: 'Mengembangkan UI/UX aplikasi, integrasi API, dan menghubungkan ML model ke antarmuka pengguna.',
-    impact: 'Proyek capstone Bangkit Academy 2024 — diterima sebagai produk final dengan feedback positif dari mentor industri.',
-    stack: ['Android', 'Kotlin', 'REST API', 'Machine Learning', 'Retrofit'],
+problem: 'Many users, especially those visiting Malang, are not familiar with the city’s tourist attractions and often struggle to plan trips that match their personal preferences.',
+solution: 'Developed an Android application that helps users plan personalized travel itineraries based on their preferences while promoting tourist destinations in Malang.',
+role: 'Designed and developed the application UI/UX, integrated REST APIs, and connected the machine learning model to the user interface.',
+impact: 'Bangkit Academy 2024 Capstone Project — selected as a final product and received positive feedback from industry mentors.',
+stack: ['Android', 'Kotlin', 'REST API', 'Machine Learning'],
   },
   cypress: {
     title: 'Basic CRUD Cypress',
