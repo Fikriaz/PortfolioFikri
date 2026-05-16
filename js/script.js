@@ -32,8 +32,8 @@ const projects = {
   },
   cypress: {
     title: 'Basic CRUD Cypress',
-    thumb: '',                  // 📸 ISI: 'images/projects/cypress-thumb.jpg'
-    images: ['', '', '', ''],   // 📸 ISI: [main, thumb1, thumb2, thumb3]
+    thumb: 'images/thumb_orangehrm.png',                  // 📸 ISI: 'images/projects/cypress-thumb.jpg'
+    images: ['images/1_orangehrm.png', 'images/2_orangehrm.png', '', ''],   // 📸 ISI: [main, thumb1, thumb2, thumb3]
     problem: 'Manual testing for CRUD operations is time-consuming, repetitive, and prone to human error during regression testing.',
     solution: 'Automated end-to-end test suite using Cypress that covers all CRUD scenarios consistently and repeatably.',
     role: 'Designed the test structure, wrote test scripts, and prepared test data and environment setup.',
@@ -42,7 +42,7 @@ const projects = {
   },
   jubelio: {
     title: 'Jubelio QA Testing',
-    thumb: '',                  // 📸 ISI: 'images/projects/jubelio-thumb.jpg'
+    thumb: 'images/coming_soon.png',                  // 📸 ISI: 'images/projects/jubelio-thumb.jpg'
     images: ['', '', '', ''],   // 📸 ISI: [main, thumb1, thumb2, thumb3]
     problem: 'The Jubelio e-commerce platform requires comprehensive validation of critical features such as login and product management.',
     solution: 'Preparation of comprehensive manual test cases and API testing using Postman to validate backend endpoints.',
