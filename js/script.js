@@ -53,10 +53,10 @@ stack: ['Android', 'Kotlin', 'REST API', 'Machine Learning'],
     title: 'Basic CRUD Cypress',
     thumb: '',                  // 📸 ISI: 'images/projects/cypress-thumb.jpg'
     images: ['', '', '', ''],   // 📸 ISI: [main, thumb1, thumb2, thumb3]
-    problem: 'Testing manual pada operasi CRUD membutuhkan waktu berulang dan rentan human error saat regression testing.',
-    solution: 'Automated end-to-end test suite menggunakan Cypress yang mengcover seluruh skenario CRUD secara konsisten dan repeatable.',
-    role: 'Merancang test structure, menulis test scripts, dan menyiapkan test data serta environment setup.',
-    impact: 'Waktu regression testing berkurang signifikan; bug terdeteksi lebih awal di siklus development.',
+    problem: 'Manual testing for CRUD operations is time-consuming, repetitive, and prone to human error during regression testing.',
+    solution: 'Automated end-to-end test suite using Cypress that covers all CRUD scenarios consistently and repeatably.',
+    role: 'Designed the test structure, wrote test scripts, and prepared test data and environment setup.',
+    impact: 'Regression testing time reduced significantly; bugs detected earlier in the development cycle.',
     stack: ['Cypress', 'JavaScript', 'E2E Testing', 'Mocha', 'CI/CD'],
   },
   jubelio: {
